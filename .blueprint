@@ -1,0 +1,15 @@
+created:
+    - database/factories/CategoryFactory.php
+    - database/factories/ProductFactory.php
+    - database/factories/SlidersFactory.php
+    - database/migrations/2021_10_02_180400_create_categories_table.php
+    - database/migrations/2021_10_02_180401_create_products_table.php
+    - database/migrations/2021_10_02_180402_create_sliders_table.php
+    - app/Models/Category.php
+    - app/Models/Product.php
+    - app/Models/Sliders.php
+models:
+    User: {  }
+    Category: { category_name: string }
+    Product: { product_name: string, product_price: integer, status: tinyInteger, product_image: string, category_id: id }
+    Sliders: { description1: string, description2: string, slider_image: string, statis: tinyInteger }

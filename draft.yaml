@@ -1,0 +1,17 @@
+models:
+  Category:
+    category_name: string
+  Product:
+    product_name: string
+    product_price: integer
+    status: tinyInteger
+    product_image: string
+    category_id: id
+  Sliders: 
+    description1: string
+    description2: string
+    slider_image: string
+    statis: tinyInteger
+
+controllers:
+  # ...
