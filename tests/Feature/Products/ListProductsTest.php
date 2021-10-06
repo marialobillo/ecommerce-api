@@ -22,6 +22,19 @@ class ListProductsTest extends TestCase
 
       $response = $this->getJson('/api/v1/products/'. $product->getRouteKey());
     
-      $response->assertSee($product->product_name);
+      $response->assertJson([
+        'data' => [
+          'type' => 'products',
+          'id' => (string)$product->getRouteKey(),
+          'attributes' => [
+            'product_name' => $product->product_name,
+            'product_price' => $product->product_price,
+            'status' => $product->status,
+          ],
+          'links' => [
+            'self' => url('/api/v1/products'. $product->getRouteKey()),
+          ]
+        ]
+      ]);
     }
 }
