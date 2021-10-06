@@ -20,19 +20,19 @@ class ListProductsTest extends TestCase
       
       $product = Product::factory()->create();
 
-      $response = $this->getJson('/api/v1/products/'. $product->getRouteKey());
+      $response = $this->getJson(route('api.v1.products.show', $product));
     
-      $response->assertJson([
+      $response->assertExactJson([
         'data' => [
           'type' => 'products',
           'id' => (string)$product->getRouteKey(),
           'attributes' => [
             'product_name' => $product->product_name,
-            'product_price' => $product->product_price,
+            'product_price' => (string) $product->product_price,
             'status' => $product->status,
           ],
           'links' => [
-            'self' => url('/api/v1/products/'. $product->getRouteKey()),
+            'self' => route('api.v1.products.show', $product),
           ]
         ]
       ]);
