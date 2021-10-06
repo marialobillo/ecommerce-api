@@ -22,7 +22,7 @@ class ProductController extends Controller
                 'status' => $product->status,
               ],
               'links' => [
-                'self' => url('/api/v1/products'. $product->getRouteKey()),
+                'self' => url('/api/v1/products/'. $product->getRouteKey()),
               ]
             ]
           ]);
