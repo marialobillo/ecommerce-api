@@ -15,18 +15,16 @@ class ProductResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'data' => [
-                'type' => 'products',
-                'id' => (string) $this->resource->getRouteKey(),
-                'attributes' => [
-                  'product_name' => $this->resource->product_name,
-                  'product_price' => $this->resource->product_price,
-                  'status' => $this->resource->status,
-                ],
-                'links' => [
-                  'self' => url(route('api.v1.products.show', $this->resource)),
-                ]
-              ]
+            'type' => 'products',
+            'id' => (string) $this->resource->getRouteKey(),
+            'attributes' => [
+                'product_name' => $this->resource->product_name,
+                'product_price' => $this->resource->product_price,
+                'status' => $this->resource->status,
+            ],
+            'links' => [
+                'self' => url(route('api.v1.products.show', $this->resource)),
+            ]
         ];
     }
 }
