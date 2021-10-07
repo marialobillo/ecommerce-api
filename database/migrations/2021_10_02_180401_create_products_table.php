@@ -20,8 +20,8 @@ class CreateProductsTable extends Migration
             $table->string('product_name');
             $table->integer('product_price');
             $table->tinyInteger('status');
-            $table->string('product_image');
-            $table->foreignId('category_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('product_image')->nullable();
+            // $table->foreignId('category_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
 

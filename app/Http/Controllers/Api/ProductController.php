@@ -22,4 +22,15 @@ class ProductController extends Controller
 
         return ProductResource::make($product);
     }
+
+    public function create(Request $request)
+    { 
+        $product = Product::create([
+          'product_name' => $request->input('data.attributes.product_name'),
+          'product_price' => $request->input('data.attributes.product_price'),
+          'status' => $request->input('data.attributes.status'),
+        ]);
+
+        return ProductResource::make($product);
+    }
 }
