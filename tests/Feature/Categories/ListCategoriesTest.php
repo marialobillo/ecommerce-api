@@ -56,18 +56,18 @@ class ListCategoriesTest extends TestCase
             'links' => [
               'self' => route('api.v1.categories.show', $categories[0]),
             ]
+          ],
+          [
+            'type' => 'categories',
+            'id' => (string) $categories[1]->getRouteKey(),
+            'attributes' => [
+              'category_name' => $categories[1]->category_name,
             ],
-            [
-              'type' => 'categories',
-              'id' => (string) $categories[1]->getRouteKey(),
-              'attributes' => [
-                'category_name' => $categories[1]->category_name,
-              ],
-              'links' => [
-                'self' => route('api.v1.categories.show', $categories[1]),
+            'links' => [
+              'self' => route('api.v1.categories.show', $categories[1]),
             ]
-            ],
-            [
+          ],
+          [
               'type' => 'categories',
               'id' => (string) $categories[2]->getRouteKey(),
               'attributes' => [

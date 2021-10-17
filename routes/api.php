@@ -17,3 +17,9 @@ Route::post('products', [ProductController::class, 'create'])
 
 Route::get('categories/{category}', [CategoryController::class, 'show'])    
     ->name('api.v1.categories.show');
+
+Route::get('categories', [CategoryController::class, 'index'])
+    ->name('api.v1.categories.index');
+
+Route::post('categories', [CategoryController::class, 'create'])
+    ->name('api.v1.categories.create');
