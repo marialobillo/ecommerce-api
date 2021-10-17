@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProductResource extends JsonResource
+class CategoryResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,15 +15,13 @@ class ProductResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'type' => 'products',
+            'type' => 'categories', 
             'id' => (string) $this->resource->getRouteKey(),
             'attributes' => [
-                'product_name' => $this->resource->product_name,
-                'product_price' => $this->resource->product_price,
-                'status' => $this->resource->status,
+                'category_name' => $this->resource->category_name,
             ],
             'links' => [
-                'self' => url(route('api.v1.products.show', $this->resource)),
+                'self' => url(route('api.v1.categories.show', $this->resource)),
             ]
         ];
     }
@@ -32,7 +30,7 @@ class ProductResource extends JsonResource
     public function toResponse($request)
     {
         return parent::toResponse($request)->withHeaders([
-            'Location' => route('api.v1.products.show', $this->resource)
+            'Location' => route('api.v1.categories.show', $this->resource)
         ]);
     }
 }

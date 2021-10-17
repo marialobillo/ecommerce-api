@@ -33,6 +33,11 @@ class CreateProductTest extends TestCase
 
         $product = Product::first();
 
+        $response->assertHeader(
+          'Location',
+          route('api.v1.products.show', $product)
+        );
+
         $response->assertExactJson([
           'data' => [
             'type' => 'products',
