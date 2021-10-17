@@ -86,7 +86,7 @@ class ListProductsTest extends TestCase
               'self' => route('api.v1.products.show', $products[2]),
             ]
             ]
-            ],
+          ],
         'links' => [
           'self' => route('api.v1.products.index')
         ]
